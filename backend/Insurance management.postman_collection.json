@@ -1,0 +1,750 @@
+{
+	"info": {
+		"_postman_id": "ec50b6d7-b095-48e6-8e66-15542f8f4328",
+		"name": "Insurance management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39033420"
+	},
+	"item": [
+		{
+			"name": "create/register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"Thuva\",\r\n    \"email\": \"thuva@gmail.com\",\r\n    \"password\": \"thuva\",\r\n    \"role\": \"CLIENT\",\r\n    \"dateOfBirth\": \"2004-01-08\",\r\n    \"address\": \"Colombo 06, Srilanka\",\r\n    \"contactInformation\": 7558083728\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"keerthy@gmail.com\",\r\n    \"password\": \"keerthy\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user by Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZWVydGh5QGdtYWlsLmNvbSIsInJvbGVzIjpbIkNMSUVOVCJdLCJpYXQiOjE3MzMyMDYyOTksImV4cCI6MTczMzIwOTg5OX0.e2V_sHlhDzN98MwxYQhU4xvFhrvrZoS6eIgNdC5UFuU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/user/get/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"get",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all users (Admin only)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZWVydGh5QGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzMzMjA4NjU0LCJleHAiOjE3MzMyMTIyNTR9.V2eT54l1QDce1Mo_H_k5miwmVl7gAZQMj-sR0Yt4K0g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/user/get_all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"get_all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user by id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZWVydGh5QGdtYWlsLmNvbSIsInJvbGVzIjpbIkNMSUVOVCJdLCJpYXQiOjE3MzMyMDY1MzksImV4cCI6MTczMzIxMDEzOX0.LDFfKGaHTDsEOPQGGorkLF3IX1lhJChIiY8oD-hX6nw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"Thuva\",\r\n    \"email\": \"thuva@gmail.com\",\r\n    \"password\": \"thuva\",\r\n    \"role\": \"CLIENT\",\r\n    \"dateOfBirth\": \"2004-01-08\",\r\n    \"address\": \"Colombo 06, Srilanka\",\r\n    \"contactInformation\": 7558083728\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/update/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user by id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZWVydGh5QGdtYWlsLmNvbSIsInJvbGVzIjpbIkNMSUVOVCJdLCJpYXQiOjE3MzMyMDY1MzksImV4cCI6MTczMzIxMDEzOX0.LDFfKGaHTDsEOPQGGorkLF3IX1lhJChIiY8oD-hX6nw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/user/delete/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"delete",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create policy (Admin only)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZWVydGh5QGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzMzMjExNDA4LCJleHAiOjE3MzMyMTUwMDh9.8fSeBrU4xOGj-1mRJGfofPwBhwApX2hrrfppbZ0wYTw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"insurancePolicyNumber\": \"POL923456\",\r\n  \"policyType\": \"LIFE\",\r\n  \"policyCoverageAmount\": 1000000,\r\n  \"policyPremium\": 5000.00,\r\n  \"paymentFrequency\": \"MONTHLY\",\r\n  \"policyDurationMonths\": 12\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/policy/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"policy",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get policy by Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aHV2YUBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0NMSUVOVCJdLCJpYXQiOjE3MzMyMDkwMDIsImV4cCI6MTczMzIxMjYwMn0.giP6xmIOXPh8jdAn-blBJEOJTb2waoEvgpoCck042aw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/policy/get/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"policy",
+						"get",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all policies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aHV2YUBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0NMSUVOVCJdLCJpYXQiOjE3MzMyMDkwMDIsImV4cCI6MTczMzIxMjYwMn0.giP6xmIOXPh8jdAn-blBJEOJTb2waoEvgpoCck042aw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/policy/get_all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"policy",
+						"get_all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update policy (Admin only)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZWVydGh5QGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzMzMjA4OTEwLCJleHAiOjE3MzMyMTI1MTB9.4FhqIcPoJPezlgbFHWVyIb23hsHE3xGSN1JgPj9OYSY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"insurancePolicyNumber\": \"POL123456\",\r\n  \"policyType\": \"LIFE\",\r\n  \"policyCoverageAmount\": 1000000,\r\n  \"policyPremium\": 5000.00,\r\n  \"paymentFrequency\": \"QUARTERLY\",\r\n  \"policyDurationMonths\": 12\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/policy/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"policy",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete policy (Admin only)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZWVydGh5QGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzMzMjA4OTEwLCJleHAiOjE3MzMyMTI1MTB9.4FhqIcPoJPezlgbFHWVyIb23hsHE3xGSN1JgPj9OYSY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/policy/delete/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"policy",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "enroll policy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aHV2YUBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0NMSUVOVCJdLCJpYXQiOjE3MzMyMTE0NzEsImV4cCI6MTczMzIxNTA3MX0.lpZRWNFA5jvweY2mR2507-aHF2-125eLA_a2OdJfM0I",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/policy_registration/enroll-policy/2?insurancePolicyId=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"policy_registration",
+						"enroll-policy",
+						"2"
+					],
+					"query": [
+						{
+							"key": "insurancePolicyId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve all policies a user is enrolled in",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aHV2YUBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0NMSUVOVCJdLCJpYXQiOjE3MzMyMDkwMDIsImV4cCI6MTczMzIxMjYwMn0.giP6xmIOXPh8jdAn-blBJEOJTb2waoEvgpoCck042aw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/policy_registration/enrolled-policies/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"policy_registration",
+						"enrolled-policies",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve user claims for a specific policy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aHV2YUBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0NMSUVOVCJdLCJpYXQiOjE3MzMyMDkwMDIsImV4cCI6MTczMzIxMjYwMn0.giP6xmIOXPh8jdAn-blBJEOJTb2waoEvgpoCck042aw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/policy_registration/user/2/policy/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"policy_registration",
+						"user",
+						"2",
+						"policy",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": " Retrieve all claims for a specific insurance policy (Admin only)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZWVydGh5QGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzMzMjA5OTIwLCJleHAiOjE3MzMyMTM1MjB9.QOtTooWT0-ybKniLSi3TKzs1bEvO8HulJ2Hv5rBlN70",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": 1,\r\n  \"insurancePolicyId\": 101\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/policy_registration/retrieve_claims/policy/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"policy_registration",
+						"retrieve_claims",
+						"policy",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create Claim",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aHV2YUBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0NMSUVOVCJdLCJpYXQiOjE3MzMyMDkwMDIsImV4cCI6MTczMzIxMjYwMn0.giP6xmIOXPh8jdAn-blBJEOJTb2waoEvgpoCck042aw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"claimName\": \"Health Insurance Claim\",\r\n  \"claimDescription\": \"Claim for hospital expenses\",\r\n  \"submittedDate\": \"2024-12-01\",\r\n  \"claimStatus\": \"PENDING\",\r\n  \"claimAmount\": 1000,\r\n  \"user\": {\r\n    \"userId\": 2\r\n  },\r\n  \"registeredPolicy\": {\r\n    \"registrationId\": 1\r\n\r\n  }\r\n\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/claims/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claims",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get claim by Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aHV2YUBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0NMSUVOVCJdLCJpYXQiOjE3MzMyMDk5NzgsImV4cCI6MTczMzIxMzU3OH0.racUNUOsFWOYQfIZrLTRQ1yUPUEHJeJXIfCjp-f1GIk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/claims/get/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claims",
+						"get",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get claims by user id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aHV2YUBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0NMSUVOVCJdLCJpYXQiOjE3MzMyMDk5NzgsImV4cCI6MTczMzIxMzU3OH0.racUNUOsFWOYQfIZrLTRQ1yUPUEHJeJXIfCjp-f1GIk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/claims/retrieve_claims/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claims",
+						"retrieve_claims",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user claims by status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aHV2YUBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0NMSUVOVCJdLCJpYXQiOjE3MzMyMDk5NzgsImV4cCI6MTczMzIxMzU3OH0.racUNUOsFWOYQfIZrLTRQ1yUPUEHJeJXIfCjp-f1GIk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/claims/claims/user/2/status/PENDING",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claims",
+						"claims",
+						"user",
+						"2",
+						"status",
+						"PENDING"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user update their own claim",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aHV2YUBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0NMSUVOVCJdLCJpYXQiOjE3MzMyMDk5NzgsImV4cCI6MTczMzIxMzU3OH0.racUNUOsFWOYQfIZrLTRQ1yUPUEHJeJXIfCjp-f1GIk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"claimName\": \"Health Insurance Claim\",\r\n  \"claimDescription\": \"Claim for hospital expenses\",\r\n  \"submittedDate\": \"2024-12-01\",\r\n  \"claimAmount\": 2000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/claims/update/2/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claims",
+						"update",
+						"2",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user delete their own claim",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aHV2YUBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0NMSUVOVCJdLCJpYXQiOjE3MzMyMTE0NzEsImV4cCI6MTczMzIxNTA3MX0.lpZRWNFA5jvweY2mR2507-aHF2-125eLA_a2OdJfM0I",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/claims/delete_claims/2/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claims",
+						"delete_claims",
+						"2",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Claims Filtered by Status (Admin Only)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZWVydGh5QGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzMzMjExNzQyLCJleHAiOjE3MzMyMTUzNDJ9.oUDHVUi627gws4plD2t2ayGB1QpGTI82vfB73yT_nfg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/claims/retrieve_claims/status/PENDING",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claims",
+						"retrieve_claims",
+						"status",
+						"PENDING"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approve/Reject a Claim (Admin only)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZWVydGh5QGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzMzMjExNzQyLCJleHAiOjE3MzMyMTUzNDJ9.oUDHVUi627gws4plD2t2ayGB1QpGTI82vfB73yT_nfg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"claimStatus\": \"REJECTED\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/claims/manage_claims/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claims",
+						"manage_claims",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
