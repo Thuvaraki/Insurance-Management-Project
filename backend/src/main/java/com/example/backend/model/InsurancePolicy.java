@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-@Table(name = "insurance_policies") // Specifies the table name as it to follow best practices [Pluralized, descriptive, concise, snake case]
 @Getter
 @Setter
 public class InsurancePolicy {

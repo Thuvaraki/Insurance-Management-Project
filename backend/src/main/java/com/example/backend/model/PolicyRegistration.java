@@ -8,7 +8,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "policy_registrations")
 @Getter
 @Setter
 public class PolicyRegistration {
