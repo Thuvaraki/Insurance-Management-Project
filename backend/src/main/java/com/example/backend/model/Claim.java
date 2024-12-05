@@ -7,6 +7,7 @@ import com.example.backend.enums.ClaimStatus;
 
 @Entity
 @Data
+@Table(name = "claims")
 public class Claim {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
