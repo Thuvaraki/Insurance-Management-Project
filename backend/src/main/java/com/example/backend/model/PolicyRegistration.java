@@ -1,6 +1,7 @@
 package com.example.backend.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +14,6 @@ import java.util.List;
 public class PolicyRegistration {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "registration_id")
     private int registrationId;
 
     @ManyToOne
@@ -24,10 +24,11 @@ public class PolicyRegistration {
     @JoinColumn(name = "policy_id", nullable = false)
     private InsurancePolicy insurancePolicy;
 
-    @Column(name = "policy_start_date", nullable = false)
+    @Column(nullable = false)
+    @NotNull
     private LocalDate policyStartDate;
 
-    @Column(name = "policy_end_date", nullable = false)
+    @Column(nullable = false)
     private LocalDate policyEndDate;
 
     @OneToMany(mappedBy = "registeredPolicy", cascade = CascadeType.ALL)

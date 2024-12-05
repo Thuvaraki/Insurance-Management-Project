@@ -1,8 +1,11 @@
 package com.example.backend.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import java.util.Date;
+
 import com.example.backend.enums.ClaimStatus;
 
 @Entity
@@ -10,26 +13,23 @@ import com.example.backend.enums.ClaimStatus;
 public class Claim {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "claim_id")
     private int claimId;
 
-    @Column(name = "claim_name", nullable = false)
+    @Column(nullable = false) //database-level constraint
     private  String claimName;
 
-    @Column(name = "claim_description")
     private String claimDescription;
 
-    @Column(name = "submitted_date",nullable = false)
+    @Column(nullable = false)
     private Date submittedDate;
 
-    @Column(name = "approved_date")
     private Date approvedDate;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "claim_status")
     private ClaimStatus claimStatus;
 
-    @Column(name = "claim_amount")
+    @Column(nullable = false)
+    @Positive
     private int claimAmount;
 
     @ManyToOne

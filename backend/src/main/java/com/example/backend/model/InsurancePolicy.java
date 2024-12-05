@@ -3,6 +3,8 @@ package com.example.backend.model;
 import com.example.backend.enums.PaymentFrequency;
 import com.example.backend.enums.PolicyType;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,27 +17,28 @@ import java.util.List;
 public class InsurancePolicy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "policy_id")
     private int policyId;
 
-    @Column(name = "policy_number",nullable = false,unique=true)
+    @Column(nullable = false,unique=true) //database-level constraint
+    @NotBlank
     private String insurancePolicyNumber;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "policy_type", nullable = false)
+    @Column(nullable = false)
     private PolicyType policyType;
 
-    @Column(name = "policy_coverage_amount", nullable = false)
+    @Column(nullable = false)
     private long policyCoverageAmount; //amount the insurance company agrees to pay
 
-    @Column(name = "policy_premium", nullable = false)
+    @Column(nullable = false)
     private BigDecimal policyPremium; //amount the user pays periodically
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "payment_frequency", nullable = false)
+    @Column(nullable = false)
     private PaymentFrequency paymentFrequency;
 
-    @Column(name = "policy_duration_months", nullable = false)
+    @Column(nullable = false)
+    @Positive
     private int policyDurationMonths;
 
     @OneToMany(mappedBy = "insurancePolicy", cascade = CascadeType.ALL)
